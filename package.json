@@ -9,14 +9,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://gitlab.com/optimus14/core.git"
+    "url": "https://github.com/HolyCoffee/optimus-core"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://gitlab.com/optimus14/core/issues"
+    "url": "https://github.com/HolyCoffee/optimus-core/issues"
   },
-  "homepage": "https://gitlab.com/optimus14/core#readme",
+  "homepage": "https://github.com/HolyCoffee/optimus-core#readme",
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/eslint-parser": "^7.16.3",
