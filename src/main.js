@@ -1,9 +1,8 @@
-import fs from 'fs';
+const fs = require('fs');
 
-import { getConfig, getFilesList } from './config';
+const { getFilesList } = require('./config');
 
-async function startAnalysis() {
-  const config = getConfig();
+async function startAnalysis(config) {
   const plugins = config.plugins || [];
 
   if (!plugins.length) {
@@ -32,4 +31,4 @@ function fileAnalysis(plugins) {
   };
 }
 
-export default startAnalysis;
+module.exports = startAnalysis;

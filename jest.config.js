@@ -1,5 +1,5 @@
 module.exports = {
-  testMatch: ['**/src/**/*.test.js'],
+  testMatch: ['**/test/**/*.test.js'],
   transformIgnorePatterns: ['node_modules'],
   collectCoverage: true,
   collectCoverageFrom: ['src/**/*.js'],
