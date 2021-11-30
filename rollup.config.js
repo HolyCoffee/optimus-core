@@ -5,9 +5,8 @@ import commonjs from '@rollup/plugin-commonjs';
 export default {
   input: 'src/main.js',
   output: {
-    file: 'dist/build.js',
-    format: 'cjs',
-    exports: 'auto',
+    file: 'dist/index.js',
+    format: 'esm',
   },
   plugins: [
     cleaner({

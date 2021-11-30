@@ -1,13 +1,13 @@
-const fs = require('fs');
+import fs from 'fs';
 
-const { getConfig, getFilesList } = require('./config');
+import { getConfig, getFilesList } from './config';
 
 async function startAnalysis() {
   const config = getConfig();
   const plugins = config.plugins || [];
 
   if (!plugins.length) {
-    console.warn(`\x1b[33m[Warn]\x1b[0m: You should add a plugin in optimus config!`);
+    console.warn('\x1b[33m[Warn]\x1b[0m: You should add a plugin in optimus config!');
     return;
   }
 
@@ -32,4 +32,4 @@ function fileAnalysis(plugins) {
   };
 }
 
-module.exports = startAnalysis;
+export default startAnalysis;

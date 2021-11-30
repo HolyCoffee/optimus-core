@@ -1,6 +1,6 @@
-const path = require('path');
-const glob = require('glob');
-const util = require('util');
+import path from 'path';
+import glob from 'glob';
+import util from 'util';
 
 function getConfig() {
   const argvs = process.argv;
@@ -35,7 +35,4 @@ async function getFilesList(paths) {
   return filesList;
 }
 
-module.exports = {
-  getConfig,
-  getFilesList,
-};
+export { getConfig, getFilesList };

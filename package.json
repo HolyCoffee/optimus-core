@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+    "test:lint": "eslint src/**"
   },
   "repository": {
     "type": "git",
@@ -17,15 +18,16 @@
   },
   "homepage": "https://gitlab.com/optimus14/core#readme",
   "devDependencies": {
+    "@babel/core": "^7.16.0",
+    "@babel/eslint-parser": "^7.16.3",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.0.6",
-    "@types/node": "^16.11.10",
+    "eslint": "^6.8.0",
     "rollup": "^2.60.1",
-    "rollup-plugin-cleaner": "^1.0.0",
-    "tslib": "^2.3.1",
-    "typescript": "^4.5.2"
+    "rollup-plugin-cleaner": "^1.0.0"
   },
   "dependencies": {
     "glob": "^7.2.0"
-  }
+  },
+  "babel": {}
 }
