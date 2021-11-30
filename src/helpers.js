@@ -1,8 +1,10 @@
 const glob = require('glob');
 
-async function getFilesList(paths = []) {
+const { consoleError } = require('./constants');
+
+function getFilesList(paths = []) {
   if (!Array.isArray(paths)) {
-    throw new TypeError('Argument "paths" should be an array!');
+    throw new TypeError(`${consoleError}: Argument "paths" should be an array!`);
   }
 
   let filesList = [];

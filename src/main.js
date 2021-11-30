@@ -1,24 +1,30 @@
-const fs = require('fs');
+const path = require('path');
+const { Worker } = require('worker_threads');
 
-const { getFilesList } = require('./config');
+const { getFilesList } = require('./helpers');
+const { consoleError } = require('./constants');
 
-async function startAnalysis(config) {
+function startAnalysis(config) {
   const plugins = config.plugins || [];
 
   if (!plugins.length) {
-    console.warn('\x1b[33m[Warn]\x1b[0m: You should add a plugin in optimus config!');
-    return;
+    throw new ReferenceError(`${consoleError}: You should add a plugin in optimus config!`);
   }
 
-  const filesList = await getFilesList(config.includes || []);
+  const filesList = getFilesList(config.includes || []);
 
   for (const filePath of filesList) {
-    fs.readFile(filePath, 'utf8', (error, data) => {
-      if (error) {
-        console.error(`\n\x1b[31m[Error]\x1b[0m: ${error}`);
-      }
+    //eslint-disable-next-line
+    console.log(plugins);
+    const worker = new Worker(path.resolve(__dirname, './worker.js'), {
+      workerData: {
+        filePath,
+      },
+      execArgv: [...process.execArgv, '--unhandled-rejections=strict'],
+    });
 
-      fileAnalysis(plugins)(data);
+    worker.on('error', (error) => {
+      console.log(`${consoleError}: Worker[${worker.threadId}] stopped with error - "${error}"`);
     });
   }
 }

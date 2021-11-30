@@ -2,6 +2,7 @@ const path = require('path');
 const yargs = require('yargs');
 
 const startAnalysis = require('./main');
+const { consoleError } = require('./constants');
 
 module.exports = function cli() {
   const configFlags = yargs
@@ -19,7 +20,7 @@ module.exports = function cli() {
   try {
     config = require(path.resolve(configPath));
   } catch {
-    throw new ReferenceError(`\n\x1b[31m[Error]\x1b[0m: Cannot find module ${configPath}\n`);
+    throw new ReferenceError(`${consoleError}: Cannot find module ${configPath}`);
   }
 
   startAnalysis(config);
