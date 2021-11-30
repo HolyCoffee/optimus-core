@@ -22,7 +22,11 @@ function getConfig() {
   return config;
 }
 
-async function getFilesList(paths) {
+async function getFilesList(paths = []) {
+  if (!Array.isArray(paths)) {
+    throw new TypeError('Argument "paths" should be an array!');
+  }
+
   const promiseGlob = util.promisify(glob);
   let filesList = [];
 
