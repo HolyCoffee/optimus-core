@@ -1,4 +1,4 @@
-import { getFilesList } from '../src/helpers';
+import { getFilesList, getFileData } from '../src/files';
 
 describe('getFilesList:', () => {
   test('Should return an array with paths to files', () => {
@@ -27,5 +27,25 @@ describe('getFilesList:', () => {
 
   test('Should throw exception if "paths" argument is not an array', () => {
     expect(() => getFilesList('test')).toThrow();
+  });
+});
+
+describe('getFileData:', () => {
+  test('Should return correct fileData', async () => {
+    const { fileData } = await getFileData('test/__mocks__/index.js');
+
+    expect(fileData).toBe('test');
+  });
+
+  test('Should throw exception if "filePath" argument is not presented', async () => {
+    await expect(getFileData()).rejects.toThrow();
+  });
+
+  test('Should throw exception if "filePath" argument is not a string', async () => {
+    await expect(getFileData(1)).rejects.toThrow();
+  });
+
+  test('Should throw exception if file is undefined', async () => {
+    await expect(getFileData('test/__mocks__/test.js')).rejects.toThrow();
   });
 });
