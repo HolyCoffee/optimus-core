@@ -1,7 +1,12 @@
 {
   "name": "@optimus/core",
   "version": "1.0.0",
-  "description": "",
+  "description": "Core library for @optimus analyzer",
+  "author": {
+    "name": "Daniil Fomin",
+    "email": "fomin.daniil.leonidovich@gmail.com",
+    "url": "https://github.com/HolyCoffee"
+  },
   "main": "bin/index.js",
   "scripts": {
     "build": "rollup -c",
@@ -15,8 +20,7 @@
     "type": "git",
     "url": "https://github.com/HolyCoffee/optimus-core"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/HolyCoffee/optimus-core/issues"
   },
