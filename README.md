@@ -44,3 +44,4 @@ module.exports = {
 
 - [ ] Integration tests
 - [ ] CI/CD, npm publish
+- [ ] d.ts files
