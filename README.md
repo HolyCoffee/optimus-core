@@ -8,7 +8,7 @@ The main plugin, which works with the configuration file, starts the processing 
 
 ### Installation and Usage:
 ---
-:warning: **[WARN]: Installation from npm is temporarily unavailable**
+:warning:  `[WARN]:` **Installation from npm is temporarily unavailable**
 ```
 $ npm install -D @optimus/core
 ```
