@@ -1,8 +1,8 @@
-import { getFilesList, getFileData } from '../src/files';
+import { getFilesList, getFileData, startPlugins } from '../src/files';
 
 describe('getFilesList:', () => {
   test('Should return an array with paths to files', () => {
-    const pathsToFiles = getFilesList(['test/__mocks__/*.js']);
+    const pathsToFiles = getFilesList(['test/__mocks__/index.js']);
 
     expect(pathsToFiles).toEqual(['test/__mocks__/index.js']);
   });
@@ -47,5 +47,25 @@ describe('getFileData:', () => {
 
   test('Should throw exception if file is undefined', async () => {
     await expect(getFileData('test/__mocks__/test.js')).rejects.toThrow();
+  });
+});
+
+describe('startPlugins:', () => {
+  test('Should get file data and call plugin', async () => {
+    const pluginMock = ({ fileData }) => {
+      expect(fileData).toBe('test');
+    };
+
+    startPlugins('test/__mocks__/index.js', {
+      plugins: [pluginMock],
+    });
+  });
+
+  test('Should throw exception if "filePath" argument is not presented', async () => {
+    await expect(startPlugins()).rejects.toThrow();
+  });
+
+  test('Should throw exception if "config" argument is not presented', async () => {
+    await expect(startPlugins('test/__mocks__/index.js')).rejects.toThrow();
   });
 });

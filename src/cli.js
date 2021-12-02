@@ -4,7 +4,7 @@ const yargs = require('yargs');
 const startAnalysis = require('./main');
 const { consoleError } = require('./constants');
 
-module.exports = function cli() {
+function cli() {
   const configFlags = yargs
     .option('config', {
       alias: 'c',
@@ -24,4 +24,6 @@ module.exports = function cli() {
   }
 
   startAnalysis(config);
-};
+}
+
+module.exports = cli;
